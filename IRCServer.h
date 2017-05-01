@@ -3,6 +3,7 @@
 #define IRC_SERVER
 
 #define PASSWORD_FILE "password.txt"
+#define ROOM_FILE "room.txt"
 
 class IRCServer {
 	// Add any variables you need
@@ -14,6 +15,8 @@ public:
 	void initialize();
 	bool checkPassword(int fd, const char * user, const char * password);
 	void processRequest( int socket );
+	void createRoom(int fd, const char * user, const char * password, const char * args);
+	void listRooms(int fd, const char * user, const char * password, const char * args);
 	void addUser(int fd, const char * user, const char * password, const char * args);
 	void enterRoom(int fd, const char * user, const char * password, const char * args);
 	void leaveRoom(int fd, const char * user, const char * password, const char * args);
